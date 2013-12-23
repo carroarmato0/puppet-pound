@@ -3,6 +3,11 @@ Puppet Pound
 
 This module manages Pound, the reverse proxy, load balancer and HTTPS front-end for Web server(s).
 
+Requirements
+---
+
+This module needs the  concat and stdlib modules
+
 Usage
 ---
 
