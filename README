@@ -16,19 +16,36 @@ class {'pound':
   alive_check => 10,
 }
 
-TODO: figure out how to generate different service entries with their various options.
-
+# Default listen for requests on 0.0.0.0 port 80
+# Redirect connection to the HTTPS vhost
 pound::listener {'default':
-
-  address => '127.0.0.1',
-  port    => 8080,
-
+  services => [
+    {
+      'HeadRequire' => 'Host: foreman.example.org',
+      'Redirect'    => 'https://foreman.example.org',
+    },
+  ],
 }
 
-pound::listener { 'default_443':
-
-  address => '127.0.0.1',
-  port    => 443,
-  ssl     => true,
-
+# Match requests on 0.0.0.0 443 and serve to multiple backends
+# on the internal network
+pound::listener {'deafult_443':
+  port        => 443,
+  ssl         => true,
+  certificate => '/etc/ssl/private/combined_mywildcard_domain.pem',
+  services    => [
+    {
+      'HeadRequire' => 'Host: foreman.example.org',
+      'Backends'    => [
+        {
+          'Address' => 'foreman.internal',
+          'Port'    => '3000',
+        },
+        {
+          'Address' => 'foreman2.internal',
+          'Port'    => '3000',
+        },
+      ],
+    }
+  ],
 }
