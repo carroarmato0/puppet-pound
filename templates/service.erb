@@ -1,4 +1,22 @@
-Service
-
-
+<% @services.each do |service| %>
+  Service
+    <%- if service['HeadRequire'] -%>
+    HeadRequire "<%= service['HeadRequire'] -%>"
+    <%- end -%>
+    <%- if service['Redirect'] -%>
+    Redirect    "<%= service['Redirect'] -%>"
+    <%- end -%>
+    <% if service['Backends'] %>
+    <% service['Backends'].each do |backend| %>
+    Backend
+      <%- if backend['Address'] -%>
+      Address <%= backend['Address'] -%>
+      <%- end -%>
+      <%- if backend['Port'] %>
+      Port    <%= backend['Port'] %>
+      <%- end -%>
+    End
+    <%- end -%>
+    <%- end %>
   End
+<% end -%>
