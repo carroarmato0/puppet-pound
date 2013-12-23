@@ -1,0 +1,29 @@
+Puppet Pound
+---
+
+This module manages Pound, the reverse proxy, load balancer and HTTPS front-end for Web server(s).
+
+Usage
+---
+
+class {'pound':
+  log_level   => 3,
+  alive_check => 10,
+}
+
+TODO: figure out how to generate different service entries with their various options.
+
+pound::listener {'default':
+
+  address => '127.0.0.1',
+  port    => 8080,
+
+}
+
+pound::listener { 'default_443':
+
+  address => '127.0.0.1',
+  port    => 443,
+  ssl     => true,
+
+}

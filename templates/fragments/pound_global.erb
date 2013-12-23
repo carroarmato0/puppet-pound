@@ -1,0 +1,28 @@
+######################################################################
+## global options:
+
+User			"<%= scope.lookupvar('user') %>"
+Group			"<%= scope.lookupvar('group') %>"
+
+<% if @jail != '' -%>
+RootJail		"<%= scope.lookupvar('jail') %>"
+<% end -%>
+
+## Logging: (goes to syslog by default)
+##	0	no logging
+##	1	normal
+##	2	extended
+##	3	Apache-style (common log format)
+LogLevel		<%= scope.lookupvar('log_level') %>
+
+## check backend every X secs:
+Alive			<%= scope.lookupvar('alive_check') %>
+
+<% if scope.lookupvar('ssl_acceleration') -%>
+## use hardware-accelleration card supported by openssl(1):
+SSLEngine		"<%= scope.lookupvar('ssl_engine') %>"
+<% end -%>
+
+# poundctl control socket
+Control 		"<%= scope.lookupvar('socket') %>"
+

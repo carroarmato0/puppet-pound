@@ -1,0 +1,15 @@
+<% if @ssl %>
+ListenHTTPS
+<% else %>
+ListenHTTP
+<% end -%>
+
+  Address   <%= scope.lookupvar('address') %>
+  Port      <%= scope.lookupvar('port') %>
+  <% if @ssl %>
+  Cert		<%= scope.lookupvar('certificate') %>
+  <% end -%>
+
+  <%= scope.function_template(['pound/service.erb']) %>
+
+End
