@@ -3,6 +3,7 @@ define pound::listener (
   $port        = 80,
   $ssl         = false,
   $certificate = '',
+  $http_verbs  = $pound::params::http_verbs,
   $services    = [],
 ) {
 

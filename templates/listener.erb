@@ -8,6 +8,9 @@ ListenHTTP
   <%- if @ssl -%>
   Cert      "<%= scope.lookupvar('certificate') %>"
   <% end -%>
+  <%- if @http_verbs -%>
+  xHTTP     "<%= scope.lookupvar('http_verbs') %>"
+  <% end -%>
   <%= scope.function_template(['pound/service.erb']) %>
 
 End

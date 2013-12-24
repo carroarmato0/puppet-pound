@@ -8,5 +8,6 @@ class pound::params {
   $socket      		= '/var/run/pound/poundctl.socket'
   $ssl_acceleration = false
   $ssl_engine  		= '<hw>'
+  $http_verbs		= 'GET, POST, HEAD, PUT, DELETE'
 
 }
