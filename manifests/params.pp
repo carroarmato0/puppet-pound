@@ -17,5 +17,6 @@ class pound::params {
   $ssl_engine       = '<hw>'
   $http_verbs       = 2
   $threads          = 128
+  $dynscale         = 0
 
 }

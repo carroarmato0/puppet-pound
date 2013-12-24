@@ -6,6 +6,9 @@
     <%- if service['Redirect'] -%>
     Redirect    "<%= service['Redirect'] -%>"
     <%- end -%>
+    <%- if service['Dynscale'] -%>
+    DynScale    <%= service['Dynscale'] -%>
+    <%- end -%>
     <% if service['Backends'] %>
     <% service['Backends'].each do |backend| %>
     Backend
