@@ -8,9 +8,12 @@ ListenHTTP
   <%- if @ssl -%>
   Cert      "<%= scope.lookupvar('certificate') %>"
   <% end -%>
-  <%- if @http_verbs -%>
+  # 1. default (GET, POST, HEAD)
+  # 2. +(PUT, DELETE)
+  # 3. +(LOCK, UNLOCK, PROPFIND, PROPPATCH, SEARCH, MKCOL, MOVE, COPY, OPTIONS, TRACE, MKACTIVITY, CHECKOUT, MERGE, REPORT)
+  # 4. +(SUBSCRIBE, UNSUBSCRIBE, NOTIFY, BPROPFIND, BPROPPATCH, POLL, BMOVE, BCOPY, BDELETE, CONNECT)
+  # 5. +(RPC_IN_DATA, RPC_OUT_DATA)
   xHTTP     "<%= scope.lookupvar('http_verbs') %>"
-  <% end -%>
   <%= scope.function_template(['pound/service.erb']) %>
 
 End
