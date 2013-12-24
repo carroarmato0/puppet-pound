@@ -26,3 +26,5 @@ SSLEngine		"<%= scope.lookupvar('ssl_engine') %>"
 # poundctl control socket
 Control 		"<%= scope.lookupvar('socket') %>"
 
+# worker threads
+Threads 		<%= scope.lookupvar('threads') %>
