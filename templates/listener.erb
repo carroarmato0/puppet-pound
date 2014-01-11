@@ -1,13 +1,11 @@
 <% if @ssl %>
 ListenHTTPS
+  Cert      "<%= scope.lookupvar('certificate') %>"
 <% else %>
 ListenHTTP
 <% end -%>
   Address   <%= scope.lookupvar('address') %>
   Port      <%= scope.lookupvar('port') %>
-  <%- if @ssl -%>
-  Cert      "<%= scope.lookupvar('certificate') %>"
-  <% end %>
   # 1. default (GET, POST, HEAD)
   # 2. +(PUT, DELETE)
   # 3. +(LOCK, UNLOCK, PROPFIND, PROPPATCH, SEARCH, MKCOL, MOVE, COPY, OPTIONS, TRACE, MKACTIVITY, CHECKOUT, MERGE, REPORT)
