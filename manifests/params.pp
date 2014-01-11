@@ -19,6 +19,6 @@ class pound::params {
   $threads              = 128
   $dynscale             = 0
   $ssl_honorcipherorder = 1
-  $ssl_ciphers          = 'ECDHE-RSA-AES256-SHA384:AES256-SHA256:RC4:HIGH:!MD5:!aNULL:!EDH:!AESGCM'
+  $ssl_ciphers          = 'EECDH+AES:EDH+AES:-SHA1:DH+AESGCM:EECDH+RC4:EDH+RC4:RC4-SHA:EECDH+AES256:EDH+AES256:AES256-SHA:!aNULL:!eNULL:!EXP:!LOW:!MD5'
 
 }
