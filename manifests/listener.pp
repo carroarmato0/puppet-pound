@@ -1,10 +1,12 @@
 define pound::listener (
-  $address     = '0.0.0.0',
-  $port        = 80,
-  $ssl         = false,
-  $certificate = '',
-  $http_verbs  = $pound::params::http_verbs,
-  $services    = [],
+  $address              = '0.0.0.0',
+  $port                 = 80,
+  $ssl                  = false,
+  $certificate          = '',
+  $ssl_honorcipherorder = '',
+  $ssl_ciphers          = '',
+  $http_verbs           = $pound::params::http_verbs,
+  $services             = [],
 ) {
 
   include pound

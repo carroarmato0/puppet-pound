@@ -1,6 +1,12 @@
 <% if @ssl %>
 ListenHTTPS
-  Cert      "<%= scope.lookupvar('certificate') %>"
+  Cert                "<%= scope.lookupvar('certificate') %>"
+  <%- if @ssl_honorcipherorder -%>
+  SSLHonorCipherOrder <%= scope.lookupvar('ssl_honorcipherorder') %>
+  <% end %>
+  <%- if @ssl_ciphers -%>
+  Ciphers             "<%= scope.lookupvar('ssl_ciphers') %>"
+  <% end %>
 <% else %>
 ListenHTTP
 <% end -%>

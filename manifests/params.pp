@@ -7,16 +7,18 @@
 #
 class pound::params {
 
-  $conf             = '/etc/pound/pound.cfg'
-  $user             = 'www-data'
-  $group            = 'www-data'
-  $log_level        = 1
-  $alive_check      = 30
-  $socket           = '/var/run/pound/poundctl.socket'
-  $ssl_acceleration = false
-  $ssl_engine       = '<hw>'
-  $http_verbs       = 2
-  $threads          = 128
-  $dynscale         = 0
+  $conf                 = '/etc/pound/pound.cfg'
+  $user                 = 'www-data'
+  $group                = 'www-data'
+  $log_level            = 1
+  $alive_check          = 30
+  $socket               = '/var/run/pound/poundctl.socket'
+  $ssl_acceleration     = false
+  $ssl_engine           = '<hw>'
+  $http_verbs           = 2
+  $threads              = 128
+  $dynscale             = 0
+  $ssl_honorcipherorder = 1
+  $ssl_ciphers          = 'ECDHE-RSA-AES256-SHA384:AES256-SHA256:RC4:HIGH:!MD5:!aNULL:!EDH:!AESGCM'
 
 }
